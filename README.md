@@ -1,4 +1,4 @@
-# Exemplo-Integra-o-POST-Callback-
+# Exemplo de Integrção POST (Callback) com a Monetizze
 Esse é um script em PHP de exemplo de como o POST (callback) da Monetizze pode ser tratado
 
 
