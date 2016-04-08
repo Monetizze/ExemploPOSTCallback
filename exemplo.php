@@ -37,7 +37,7 @@
   // Se não, esses campos não serão enviados
   $codAssinatura    = $dados['assinatura']['codigo']; // código da assinatura na Monetizze
   $statusAssinatura = $dados['assinatura']['status']; // Status da assinatura (Ativa, Inadiplente, Cancelada)
-  $dataAssinatura   = $dados['assinatura']['data_assinatura'] // Data da Assinatura. Formato: yyyy-mm-dd H:i:s
+  $dataAssinatura   = $dados['assinatura']['data_assinatura']; // Data da Assinatura. Formato: yyyy-mm-dd H:i:s
 
 
   //Comissões
