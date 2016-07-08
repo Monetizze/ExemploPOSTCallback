@@ -36,7 +36,7 @@
   // Se o produto for um produto recorrente (assinatura) é enviado também os dados da assinatura correspondente a essa venda
   // Se não, esses campos não serão enviados
   $codAssinatura    = $dados['assinatura']['codigo']; // código da assinatura na Monetizze
-  $statusAssinatura = $dados['assinatura']['status']; // Status da assinatura (Ativa, Inadiplente, Cancelada)
+  $statusAssinatura = $dados['assinatura']['status']; // Status da assinatura (Ativa, Inadimplente, Cancelada)
   $dataAssinatura   = $dados['assinatura']['data_assinatura']; // Data da Assinatura. Formato: yyyy-mm-dd H:i:s
 
 
