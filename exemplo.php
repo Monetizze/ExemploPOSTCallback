@@ -29,7 +29,8 @@
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
   $valorLiquido     = $dados['venda']['valorLiquido']; //valor total pago menos as taxas cobradas pela plataforma ex: 1367.00 
   $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00 
-  $valorRecebido    = $dados['venda']['linkBoleto'] ; //Quando a forma de pagamento for Boleto, aqui vem o link para impressão do boleto 
+  $linkBoleto       = $dados['venda']['linkBoleto'] ; //Quando a forma de pagamento for Boleto, aqui vem o link para impressão do boleto 
+  $linhaDigitavel   = $dados['venda']['linha_digitavel'] ; //Quando a forma de pagamento for Boleto, aqui vem a linha digitável do boleto 
  
 
 
