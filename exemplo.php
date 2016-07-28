@@ -27,7 +27,6 @@
   $garantiaRestante = $dados['venda']['garantiaRestante'];
   $statusVenda      = $dados['venda']['status']; // Status da venda (Aguardando pagamento, Finalizada, Cancelada, Devolvida, Bloqueada, Completa)
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
-  $valorLiquido     = $dados['venda']['valorLiquido']; //valor total pago menos as taxas cobradas pela plataforma ex: 1367.00 
   $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00 
   
   $src              = $dados['venda']['src']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
