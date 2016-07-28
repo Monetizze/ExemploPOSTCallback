@@ -29,6 +29,16 @@
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
   $valorLiquido     = $dados['venda']['valorLiquido']; //valor total pago menos as taxas cobradas pela plataforma ex: 1367.00 
   $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00 
+  
+  $src              = $dados['venda']['src']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
+  $utm_source       = $dados['venda']['utm_source']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
+  $utm_medium       = $dados['venda']['utm_medium']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
+  $utm_content      = $dados['venda']['utm_content']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
+  $utm_campaign     = $dados['venda']['utm_campaign']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
+  
+  
+  
+  // $linkBoleto e $linhaDigitavel - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
   $linkBoleto       = $dados['venda']['linkBoleto'] ; //Quando a forma de pagamento for Boleto, aqui vem o link para impressão do boleto 
   $linhaDigitavel   = $dados['venda']['linha_digitavel'] ; //Quando a forma de pagamento for Boleto, aqui vem a linha digitável do boleto 
  
@@ -41,7 +51,7 @@
   $dataAssinatura   = $dados['assinatura']['data_assinatura']; // Data da Assinatura. Formato: yyyy-mm-dd H:i:s
 
 
-  //Comissões
+  //Comissões - Somente Produto e co-produtor
 
   $comissoes = $dados['comissoes'];
 
@@ -56,7 +66,7 @@
 
 
 
-  //Dados do comprador 
+  //Dados do comprador - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado 
 
   $nome             = $dados['comprador']['nome'];
   $email            = $dados['comprador']['email'];
