@@ -4,12 +4,23 @@
 
   $dados = $_POST;
   
+  
+  //Chave Unica
   //Para verificar se o POST foi enviado pela Monetizze
-  //Compare a chave do produto recebida com a chave que se encontra da aba Integrações na edição do produto
+  //Compare a chave recebida com a chave que se encontra no menu Ferramentas->Postback
+  $chaveUnica = $dados['chave_unica'];
+  if($chaveUnica  != '82e98fd17562ae451ba4f9e3b9c2eab6') {
+    exit;
+  }
+   
+   
+  //Compare a chave do produto recebida com a chave que se encontra da aba Dados Gerais no detalhe do produto
   $chave = $dados['produto']['chave'];
   if($chave  != 'd166bc9efec4b99953fa17aa5912d648') {
     exit;
   }
+  
+  
   
   
   //dados do produto
