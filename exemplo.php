@@ -94,6 +94,10 @@
   $pais             = $dados['comprador']['pais'];
 
 
+  //Dados do comprador - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado 
+
+  $cnpj_cpf_produtor = $dados['produtor']['cnpj_cpf'];
+  $nome_produtor     = $dados['produtor']['nome'];
 
 /*
 
