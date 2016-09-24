@@ -30,7 +30,21 @@
   //dados da venda 
 
   $codVenda         = $dados['venda']['codigo']; // Código da transação
+  
+  /*
+  *	Código do Plano
+  *
+  * Código único do plano no caso de produtos fracionados em planos.
+  *	Para ver o código, acesse seu produto e cá na aba planos, o código é a parte inteira da Referência
+  *
+  * Exemplo:
+  *	Para a referência: QH35553, o valor de $dados['venda']['plano'] é 35553
+  *
+  * Tipo: Inteiro
+  *
+  */
   $codPlano         = $dados['venda']['plano']; // código do plano do produto (da edição do produto aba planos)
+  
   $dataInicio       = $dados['venda']['dataInicio']; // Data que iniciou a compra. Formato: yyyy-mm-dd H:i:s
   $dataFinalizada   = $dados['venda']['dataFinalizada']; // Data em que foi confirmado o pagamento. Formato: yyyy-mm-dd H:i:s
   $meioPagamento    = $dados['venda']['meioPagamento']; // Meio de pagamento utilizado - (PagSeguro, MoIP, Monetize)
@@ -57,6 +71,18 @@
 
   // Se o produto for um produto recorrente (assinatura) é enviado também os dados da assinatura correspondente a essa venda
   // Se não, esses campos não serão enviados
+  
+  /*
+  *	Código da Assinatura
+  *
+  * Código único da assinatura.
+  *	Este código é a chave única da assinatura, pode ser obtido no relatório de assinaturas.
+  *
+  * Exemplo de Retorno: 3184
+  *
+  * Tipo: Inteiro
+  *
+  */
   $codAssinatura    = $dados['assinatura']['codigo']; // código da assinatura na Monetizze
   $statusAssinatura = $dados['assinatura']['status']; // Status da assinatura (Ativa, Inadimplente, Cancelada)
   $dataAssinatura   = $dados['assinatura']['data_assinatura']; // Data da Assinatura. Formato: yyyy-mm-dd H:i:s
