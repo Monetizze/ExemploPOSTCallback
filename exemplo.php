@@ -6,8 +6,6 @@
 
         Documento para auxiliar desenvolvedores a integrar Monetizze ao seu software
 
-        Jeferson Capobianco <jefersoncapobianco@gmail.com>
-        Challenger CRM <challengercrm.com>
     */
 
   $dados = $_POST;
@@ -43,7 +41,7 @@
   *	Código do Plano
   *
   * Código único do plano no caso de produtos fracionados em planos.
-  *	Para ver o código, acesse seu produto e cá na aba planos, o código é a parte inteira da Referência
+  *	Para ver o código, acesse seu produto e vá na aba planos, o código é a parte inteira da Referência
   *
   * Exemplo:
   *	Para a referência: QH35553, o valor de $dados['venda']['plano'] é 35553
@@ -52,6 +50,21 @@
   *
   */
   $codPlano         = $dados['venda']['plano']; // código do plano do produto (da edição do produto aba planos)
+
+  /*
+  *	Código do Cupom
+  *
+  * Código único do cupom no caso tenha sido usado um cupo  na venda.
+  *	Para ver o código, acesse seu produto e vá na aba cupons, o código é a parte inteira da Referência
+  *
+  * Exemplo:
+  *	Para a referência: QH35553, o valor de $dados['venda']['cupom'] é 35553
+  *
+  * Tipo: Inteiro
+  *
+  */
+  $codPlano         = $dados['venda']['cupom']; // código do cupom usado na venda
+
 
   $dataInicio       = $dados['venda']['dataInicio']; // Data que iniciou a compra. Formato: yyyy-mm-dd H:i:s
   $dataFinalizada   = $dados['venda']['dataFinalizada']; // Data em que foi confirmado o pagamento. Formato: yyyy-mm-dd H:i:s
@@ -62,6 +75,8 @@
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
   $valorVenda       = $dados['venda']['quantidade']; //quantidade de produtos comprados nessa venda
   $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00
+  $tipo_frete       = $dados['venda']['tipo_frete'] ; //Tipo do frete ( 1 = SEDEX, 2 = PAC)
+  $frete            = $dados['venda']['frete'] ; // Valor pago pelo frete
 
   $src              = $dados['venda']['src']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
   $utm_source       = $dados['venda']['utm_source']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
@@ -165,4 +180,13 @@
   Bloqueada = Venda em disputa
   Completa =  Valor das comissões disponível para saque na Monetizze (Quando a venda completa 30 dias da data de finalizada)
 
+*/
+
+/*
+
+    Novos comentários adicionados por 
+        Jeferson Capobianco <jefersoncapobianco@gmail.com>
+        Challenger CRM <challengercrm.com>
+        
+        Obrigado pela contribuição.
 */
