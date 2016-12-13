@@ -1,10 +1,18 @@
 
 <?php
 
+    /*
+        Documentação PostBack de integração da Monetizze
+
+        Documento para auxiliar desenvolvedores a integrar Monetizze ao seu software
+
+        Jeferson Capobianco <jefersoncapobianco@gmail.com>
+        Challenger CRM <challengercrm.com>
+    */
 
   $dados = $_POST;
-  
-  
+
+
   //Chave Unica
   //Para verificar se o POST foi enviado pela Monetizze
   //Compare a chave recebida com a chave que se encontra no menu Ferramentas->Postback
@@ -12,25 +20,39 @@
   if($chaveUnica  != '82e98fd17562ae451ba4f9e3b9c2eab6') {
     exit;
   }
-   
-   
+
+
   //Compare a chave do produto recebida com a chave que se encontra da aba Dados Gerais no detalhe do produto
   $chave = $dados['produto']['chave'];
   if($chave  != 'd166bc9efec4b99953fa17aa5912d648') {
     exit;
   }
-  
-  
-  
-  
+
+
+
+
   //dados do produto
   $codigoProduto = $dados['produto']['codigo'];
   $nomeProduto = $dados['produto']['nome'];
 
-  //dados da venda 
+  //dados da venda
 
   $codVenda         = $dados['venda']['codigo']; // Código da transação
+
+  /*
+  *	Código do Plano
+  *
+  * Código único do plano no caso de produtos fracionados em planos.
+  *	Para ver o código, acesse seu produto e cá na aba planos, o código é a parte inteira da Referência
+  *
+  * Exemplo:
+  *	Para a referência: QH35553, o valor de $dados['venda']['plano'] é 35553
+  *
+  * Tipo: Inteiro
+  *
+  */
   $codPlano         = $dados['venda']['plano']; // código do plano do produto (da edição do produto aba planos)
+
   $dataInicio       = $dados['venda']['dataInicio']; // Data que iniciou a compra. Formato: yyyy-mm-dd H:i:s
   $dataFinalizada   = $dados['venda']['dataFinalizada']; // Data em que foi confirmado o pagamento. Formato: yyyy-mm-dd H:i:s
   $meioPagamento    = $dados['venda']['meioPagamento']; // Meio de pagamento utilizado - (PagSeguro, MoIP, Monetize)
@@ -39,26 +61,58 @@
   $statusVenda      = $dados['venda']['status']; // Status da venda (Aguardando pagamento, Finalizada, Cancelada, Devolvida, Bloqueada, Completa)
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
   $valorVenda       = $dados['venda']['quantidade']; //quantidade de produtos comprados nessa venda
-  $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00 
-  
+  $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00
+
   $src              = $dados['venda']['src']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
   $utm_source       = $dados['venda']['utm_source']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
   $utm_medium       = $dados['venda']['utm_medium']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
   $utm_content      = $dados['venda']['utm_content']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
   $utm_campaign     = $dados['venda']['utm_campaign']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
-  
-  
-  
+
+
+
   // $linkBoleto e $linhaDigitavel - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
-  $linkBoleto       = $dados['venda']['linkBoleto'] ; //Quando a forma de pagamento for Boleto, aqui vem o link para impressão do boleto 
-  $linhaDigitavel   = $dados['venda']['linha_digitavel'] ; //Quando a forma de pagamento for Boleto, aqui vem a linha digitável do boleto 
- 
+  $linkBoleto       = $dados['venda']['linkBoleto'] ; //Quando a forma de pagamento for Boleto, aqui vem o link para impressão do boleto
+  $linhaDigitavel   = $dados['venda']['linha_digitavel'] ; //Quando a forma de pagamento for Boleto, aqui vem a linha digitável do boleto
+
 
 
   // Se o produto for um produto recorrente (assinatura) é enviado também os dados da assinatura correspondente a essa venda
   // Se não, esses campos não serão enviados
+
+  /*
+  *	Código da Assinatura
+  *
+  * Código único da assinatura.
+  *	Este código é a chave única da assinatura, pode ser obtido no relatório de assinaturas.
+  *
+  * Exemplo de Retorno: 3184
+  *
+  * Tipo: Inteiro
+  *
+  */
   $codAssinatura    = $dados['assinatura']['codigo']; // código da assinatura na Monetizze
-  $statusAssinatura = $dados['assinatura']['status']; // Status da assinatura (Ativa, Inadimplente, Cancelada)
+
+  /*
+  *	Status da Assinatura
+  *
+  * Estado atual da assinatura.
+  * Status da assinatura (Ativa, Inadimplente, Cancelada)
+  *
+  * Tipo: Texto
+  *
+  */
+  $statusAssinatura = $dados['assinatura']['status'];
+
+  /*
+  *	Data da Assinatura
+  *
+  * Data da criação da assinatura.
+  * Formato: yyyy-mm-dd H:i:s
+  *
+  * Tipo: Data e Hora
+  *
+  */
   $dataAssinatura   = $dados['assinatura']['data_assinatura']; // Data da Assinatura. Formato: yyyy-mm-dd H:i:s
 
 
@@ -67,7 +121,7 @@
   $comissoes = $dados['comissoes'];
 
   foreach ($comissoes as $comissao) {
-      
+
     $nomeComissionado[] = $comissao['nome']; // do afiliado ou produto que recebeu essa comissão
     $tipoComissao[]     = $comissao['tipo_comissao']; // tipo da comissão (Sistema, Produtor, Co-Produtor, Primeiro Clique, Clique intermediário, Último Clique, Lead, Premium, Gerente)
     $valorComissao[]    = $comissao['valor']; // Valor que esse comissionado recebeu
@@ -77,7 +131,8 @@
 
 
 
-  //Dados do comprador - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado 
+  //Dados do comprador - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
+
 
   $nome             = $dados['comprador']['nome'];
   $email            = $dados['comprador']['email'];
@@ -94,7 +149,7 @@
   $pais             = $dados['comprador']['pais'];
 
 
-  //Dados do Produto, para emissao de nota fiscal de comissao de afiliado e co-produtor 
+  //Dados do Produto, para emissao de nota fiscal de comissao de afiliado e co-produtor
 
   $cnpj_cpf_produtor = $dados['produtor']['cnpj_cpf'];
   $nome_produtor     = $dados['produtor']['nome'];
@@ -107,7 +162,7 @@
   Finalizada = Pagamento confirmado - Produto pode ser entregue
   Cancelada =  Boleto não pago, ou cartão de crédito recusado
   Devolvida = Venda reembolsada ao comprador
-  Bloqueada = Venda em disputa 
+  Bloqueada = Venda em disputa
   Completa =  Valor das comissões disponível para saque na Monetizze (Quando a venda completa 30 dias da data de finalizada)
 
 */
