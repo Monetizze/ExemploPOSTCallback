@@ -168,6 +168,7 @@
 
   $cnpj_cpf_produtor = $dados['produtor']['cnpj_cpf'];
   $nome_produtor     = $dados['produtor']['nome'];
+  $email_produtor     = $dados['produtor']['email'];
 
 /*
 
