@@ -141,6 +141,7 @@
     $tipoComissao[]     = $comissao['tipo_comissao']; // tipo da comissão (Sistema, Produtor, Co-Produtor, Primeiro Clique, Clique intermediário, Último Clique, Lead, Premium, Gerente)
     $valorComissao[]    = $comissao['valor']; // Valor que esse comissionado recebeu
     $porcComissao[]     = $comissao['comissao']; // Porcentagem do valor todal da venda que ele recebeu
+    $EmailComissao[]     = $comissao['email']; // E-mail do afiliado/coprodutor/gerente
 
   }
 
