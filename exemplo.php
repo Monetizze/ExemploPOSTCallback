@@ -85,6 +85,13 @@
   $utm_campaign     = $dados['venda']['utm_campaign']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
 
 
+  //planos
+
+   $plano_codigo        = $dados['plano']['codigo']; // codigo do plano
+   $plano_referencia    = $dados['plano']['referencia']; // referencia do plano
+   $plano_nome          = $dados['plano']['nome']; // nome do plano
+   $plano_quantidade    = $dados['plano']['quantidade']; // quantidade de produtos que sao entregues com esse plano, normalmente usado em produtos físicos
+
 
   // $linkBoleto e $linhaDigitavel - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
   $linkBoleto       = $dados['venda']['linkBoleto'] ; //Quando a forma de pagamento for Boleto, aqui vem o link para impressão do boleto
@@ -136,7 +143,8 @@
   $comissoes = $dados['comissoes'];
 
   foreach ($comissoes as $comissao) {
-
+ 
+    $refAfiliado[]      = $comissao['refAfiliado']; // Referencia do afiliado ao produto, se for uma comissao de afiliado, se nao for envia NULL (vazio)
     $nomeComissionado[] = $comissao['nome']; // do afiliado ou produto que recebeu essa comissão
     $tipoComissao[]     = $comissao['tipo_comissao']; // tipo da comissão (Sistema, Produtor, Co-Produtor, Primeiro Clique, Clique intermediário, Último Clique, Lead, Premium, Gerente)
     $valorComissao[]    = $comissao['valor']; // Valor que esse comissionado recebeu
