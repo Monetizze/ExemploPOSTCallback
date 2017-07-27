@@ -119,7 +119,7 @@
   *	Status da Assinatura
   *
   * Estado atual da assinatura.
-  * Status da assinatura (Ativa, Inadimplente, Cancelada)
+  * Status da assinatura (Ativa, Inadimplente, Cancelada, Aguardando Pagamento)
   *
   * Tipo: Texto
   *
