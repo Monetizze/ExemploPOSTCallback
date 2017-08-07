@@ -181,6 +181,11 @@
 
 /*
 
+
+    $json =  = $dados['json']; // Contem todo o conteúdo do postback em formato json
+
+
+
   SIGNIFICADO DE CADA STATUS DA VENDA
 
   Aguardando pagamento = Ainda não foi confirmado o pagamento (se a forma de pagamento for boleto = Boleto Impresso,)
