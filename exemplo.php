@@ -181,7 +181,7 @@
 
 
 
-  $json =  = $dados['json']; // Contem todo o conteúdo do postback em formato json
+  $json = $dados['json']; // Contem todo o conteúdo do postback em formato json
 
 
 /*
