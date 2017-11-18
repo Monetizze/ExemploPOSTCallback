@@ -54,7 +54,7 @@
   /*
   *	Código do Cupom
   *
-  * Código único do cupom no caso tenha sido usado um cupo  na venda.
+  * Código único do cupom no caso tenha sido usado um cupom na venda.
   *	Para ver o código, acesse seu produto e vá na aba cupons, o código é a parte inteira da Referência
   *
   * Exemplo:
@@ -70,7 +70,7 @@
   $dataFinalizada   = $dados['venda']['dataFinalizada']; // Data em que foi confirmado o pagamento. Formato: yyyy-mm-dd H:i:s
   $meioPagamento    = $dados['venda']['meioPagamento']; // Meio de pagamento utilizado - (PagSeguro, MoIP, Monetize)
   $formaPagamento   = $dados['venda']['formaPagamento']; // Forma de pagamento utilizado - (Cartão de crédito,  Débito online, Boleto, Gratis, Outra)
-  $garantiaRestante = $dados['venda']['garantiaRestante'];
+  $garantiaRestante = $dados['venda']['garantiaRestante']; //Tempo de garantia em inteito ex: 0 - Padrão: 0
   $statusVenda      = $dados['venda']['status']; // Status da venda (Aguardando pagamento, Finalizada, Cancelada, Devolvida, Bloqueada, Completa)
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
   $quantidade       = $dados['venda']['quantidade']; //quantidade de produtos comprados nessa venda
@@ -99,7 +99,10 @@
 
   // $linkBoleto e $linhaDigitavel - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
   $linkBoleto       = $dados['venda']['linkBoleto'] ; //Quando a forma de pagamento for Boleto, aqui vem o link para impressão do boleto
-  $linhaDigitavel   = $dados['venda']['linha_digitavel'] ; //Quando a forma de pagamento for Boleto, aqui vem a linha digitável do boleto
+
+  //Quando a forma de pagamento for Boleto, aqui vem a linha digitável do boleto
+  //Com espaços e pontos Ex: 75681.44871 01002.680823 00450.520002 1 71890000030070
+  $linhaDigitavel   = $dados['venda']['linha_digitavel'] ; 
 
 
 
@@ -165,9 +168,9 @@
   $nome             = $dados['comprador']['nome'];
   $email            = $dados['comprador']['email'];
   $data_nascimento  = $dados['comprador']['data_nascimento']; // Formato yyyy-mm-dd
-  $cnpj_cpf         = $dados['comprador']['cnpj_cpf'];
+  $cnpj_cpf         = $dados['comprador']['cnpj_cpf']; //Numero inteiro (sem pontos)
   $telefone         = $dados['comprador']['telefone'];
-  $cep              = $dados['comprador']['cep'];
+  $cep              = $dados['comprador']['cep']; //Numero inteiro (sem pontos)
   $endereco         = $dados['comprador']['endereco'];
   $numero           = $dados['comprador']['numero'];
   $complemento      = $dados['comprador']['complemento'];
@@ -179,7 +182,7 @@
 
   //Dados do Produto, para emissao de nota fiscal de comissao de afiliado e co-produtor
 
-  $cnpj_cpf_produtor = $dados['produtor']['cnpj_cpf'];
+  $cnpj_cpf_produtor = $dados['produtor']['cnpj_cpf']; //Numero inteiro (sem pontos)
   $nome_produtor     = $dados['produtor']['nome'];
   $email_produtor     = $dados['produtor']['email'];
 
