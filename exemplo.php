@@ -79,6 +79,9 @@
   $descr_tipo_frete = $dados['venda']['descr_tipo_frete'] ; //Descricao do frete (Ex: Correios SEDEX, Corretios PAC, Total Express)
   $frete            = $dados['venda']['frete'] ; // Valor pago pelo frete
 
+  $onebuyclick      = $dados['venda']['onebuyclick'] ; // se a essa venda foi feita com 1 click (Upsell)
+  $venda_upsell     = $dados['venda']['venda_upsell'] ; // Caso essa venda tenha se originado de um upsell, nesse campo vai o cód da venda principal, que originou essa venda.
+
   $src              = $dados['venda']['src']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
   $utm_source       = $dados['venda']['utm_source']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
   $utm_medium       = $dados['venda']['utm_medium']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
