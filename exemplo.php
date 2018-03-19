@@ -33,9 +33,25 @@
   $codigoProduto = $dados['produto']['codigo'];
   $nomeProduto = $dados['produto']['nome'];
 
+
+    // Tipo Postback
+  $codTipoPostback = $dados['tipoPostback']['codigo']; // 1=Sistema, 2=Produtor, 3=Co-Produtor, 4=Afiliado, 5=Afiliado Premium, 6=Gerente de Afiliado, 7=Co-Afiliado 
+  $descTipoPostback = $dados['tipoPostback']['descricao']; //Sistema,Produtor, Co-Produtor, Afiliado, Afiliado Premium, Gerente de Afiliado, Co-Afiliado
+
+
+
+
+
+
+
   //dados da venda
 
   $codVenda         = $dados['venda']['codigo']; // Código da transação
+ /*
+    Se não for enviado o código da venda, siginifica que esse postback se trata de uma recuperação de carrinho (checkout abandonado).
+ 
+ */
+
 
   /*
   *	Código do Plano
@@ -157,6 +173,10 @@
     $valorComissao[]    = $comissao['valor']; // Valor que esse comissionado recebeu
     $porcComissao[]     = $comissao['comissao']; // Porcentagem do valor todal da venda que ele recebeu
     $EmailComissao[]     = $comissao['email']; // E-mail do afiliado/coprodutor/gerente
+      
+      /*
+        Obs: Quando a comissao for do sistema, o valor é considerado a % cobrada + R$ 1,00.
+      /*
 
   }
 
