@@ -172,7 +172,7 @@
   * Tipo: Número
   *
   */
-  $parcelaAssinatura   = $dados['assinatura']['parcela']; // Parcela da cobrana
+  $parcelaAssinatura   = $dados['assinatura']['parcela']; // Parcela da cobrança
 
 
   //Comissões - Somente Produto e co-produtor
