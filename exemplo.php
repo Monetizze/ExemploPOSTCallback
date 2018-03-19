@@ -111,6 +111,7 @@
    $plano_referencia    = $dados['plano']['referencia']; // referencia do plano
    $plano_nome          = $dados['plano']['nome']; // nome do plano
    $plano_quantidade    = $dados['plano']['quantidade']; // quantidade de produtos que sao entregues com esse plano, normalmente usado em produtos físicos
+   $plano_periodicidade = $dados['plano']['periodicidade']; // Semanal, Mensal, Bimestral, Trimestral, Semestral, Anual- OBS: Se não for uma venda recorrente, esse campo no será enviado
 
 
   // $linkBoleto e $linhaDigitavel - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
@@ -159,6 +160,19 @@
   *
   */
   $dataAssinatura   = $dados['assinatura']['data_assinatura']; // Data da Assinatura. Formato: yyyy-mm-dd H:i:s
+
+
+
+  /*
+  *	Numero da parcela dessa cobrana
+  *
+  * Data da criação da assinatura.
+  * Formato: yyyy-mm-dd H:i:s
+  *
+  * Tipo: Número
+  *
+  */
+  $parcelaAssinatura   = $dados['assinatura']['parcela']; // Parcela da cobrana
 
 
   //Comissões - Somente Produto e co-produtor
