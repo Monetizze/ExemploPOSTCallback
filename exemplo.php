@@ -105,6 +105,8 @@
   $utm_campaign     = $dados['venda']['utm_campaign']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
 
 
+  $url_recuperacao = $dados['url_recuperacao']; // URL de recuperacao de venda, link direto para o checkout que o cliente acessou ja preenchendo os dados cadastrais do comprador.
+
   //planos
 
    $plano_codigo        = $dados['plano']['codigo']; // codigo do plano
