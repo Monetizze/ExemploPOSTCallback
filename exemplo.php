@@ -10,7 +10,6 @@
 
   $dados = $_POST;
 
-
   //Chave Unica
   //Para verificar se o POST foi enviado pela Monetizze
   //Compare a chave recebida com a chave que se encontra no menu Ferramentas->Postback
@@ -19,29 +18,19 @@
     exit;
   }
 
-
   //Compare a chave do produto recebida com a chave que se encontra da aba Dados Gerais no detalhe do produto
   $chave = $dados['produto']['chave'];
   if($chave  != 'd166bc9efec4b99953fa17aa5912d648') {
     exit;
   }
 
-
-
-
   //dados do produto
   $codigoProduto = $dados['produto']['codigo'];
   $nomeProduto = $dados['produto']['nome'];
 
-
     // Tipo Postback
   $codTipoPostback = $dados['tipoPostback']['codigo']; // 1=Sistema, 2=Produtor, 3=Co-Produtor, 4=Afiliado, 5=Afiliado Premium, 6=Gerente de Afiliado, 7=Co-Afiliado 
   $descTipoPostback = $dados['tipoPostback']['descricao']; //Sistema,Produtor, Co-Produtor, Afiliado, Afiliado Premium, Gerente de Afiliado, Co-Afiliado
-
-
-
-
-
 
 
   //dados da venda
@@ -190,14 +179,12 @@
       
       /*
         Obs: Quando a comissao for do sistema, o valor é considerado a % cobrada + R$ 1,00.
-      /*
+      */
 
   }
 
 
-
   //Dados do comprador - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
-
 
   $nome             = $dados['comprador']['nome'];
   $email            = $dados['comprador']['email'];
