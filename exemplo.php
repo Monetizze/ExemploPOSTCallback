@@ -25,6 +25,7 @@
   }
 
   //dados do produto
+  // Em vendas realizadas atraves de checkout com Order Bump "$dados['produto']['codigo']" e "$dados['produto']['nome']" referem-se ao item principal da venda.
   $codigoProduto = $dados['produto']['codigo'];
   $nomeProduto = $dados['produto']['nome'];
 
@@ -40,6 +41,17 @@
     Se não for enviado o código da venda, siginifica que esse postback se trata de uma recuperação de carrinho (checkout abandonado).
  
  */
+
+
+ /*
+  * Order Bump
+  *
+  * Informa se a venda foi realizada através de um checkout que contém order bump.
+  *
+  * 1 = Venda realizada através de checkout com order bump.
+  * 2 - Venda realizada através de checkout SEM order bump.
+  * */
+  $order_bump = $dados['order_bump'];
 
 
   /*
@@ -77,7 +89,10 @@
   $formaPagamento   = $dados['venda']['formaPagamento']; // Forma de pagamento utilizado - (Cartão de crédito,  Débito online, Boleto, Gratis, Outra)
   $garantiaRestante = $dados['venda']['garantiaRestante']; //Tempo de garantia em inteito ex: 0 - Padrão: 0
   $statusVenda      = $dados['venda']['status']; // Status da venda (Aguardando pagamento, Finalizada, Cancelada, Devolvida, Bloqueada, Completa)
+
+  // Caso tenha sido realizada através de um checkout com order bump ($dados['order_bump'] == 1) o valor da venda é a soma dos valores de todos os produtos inclusos.
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
+
   $quantidade       = $dados['venda']['quantidade']; //quantidade de produtos comprados nessa venda
   $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00
   $tipo_frete       = $dados['venda']['tipo_frete'] ; //Tipo do frete ( 4014 = SEDEX, 4510 = PAC, 999999 = Valor Fixo) Qualquer valor q for enviado diferente desses, refere-se ao código da Intelipost.
@@ -208,6 +223,33 @@
   $cnpj_cpf_produtor = $dados['produtor']['cnpj_cpf']; //Numero inteiro (sem pontos)
   $nome_produtor     = $dados['produtor']['nome'];
   $email_produtor     = $dados['produtor']['email'];
+
+
+  /*
+   * Itens inclusos na venda.
+   *
+   * No caso de a venda ter sido realizada atraves de um checkout que contenha order bump itens inclusos na estarao discriminados nesta lista (Inclusive o item principal).
+   *
+   * # Atenção: Caso a venda NAO tenha sido realizada atraves de  um checkout que contenha order bump essa lista não existirá nos dados enviados por postback.
+   * */
+
+  $venda_item_order_bump = $dados['venda_item_order_bump'];
+
+  foreach ($venda_item_order_bump  as $item) {
+
+      $produto    = $item['produto'];     // Codigo do produto. Ex.: 35368
+      $chave      = $item['chave'];       // Chave do produto. Ex.: 29c479456ef5aabdf75a3bcc6f5005a9
+      $nome       = $item['nome'];        // Nome do produto.
+      $descricao  = $item['descricao'];   // Descricao do produto
+      $plano      = $item['plano'];       // (Opcional) Referencia do Plano do produto. Ex.: FC34015
+      $cupom      = $item['cupom'];       // (Opcional) Referencia do Cupom do produto. Ex.: DG1
+      $valor      = $item['valor'];       // Valor do produto
+
+      // A informação contida em $item['principal'] indica se o item é o item principal do checkout.
+      // 0 = Item Adicional
+      // 1 = Item Principal
+      $principal[] = $item['principal'];
+  }
 
 
 
