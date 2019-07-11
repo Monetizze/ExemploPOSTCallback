@@ -244,6 +244,7 @@
       $plano      = $item['plano'];       // (Opcional) Referencia do Plano do produto. Ex.: FC34015
       $cupom      = $item['cupom'];       // (Opcional) Referencia do Cupom do produto. Ex.: DG1
       $valor      = $item['valor'];       // Valor do produto
+      $quantidade = $item['quantidade'];  // Quantidade adquirida deste item 
 
       // A informação contida em $item['principal'] indica se o item é o item principal do checkout.
       // 0 = Item Adicional
