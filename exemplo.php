@@ -28,7 +28,7 @@
   // Em vendas realizadas atraves de checkout com Order Bump "$dados['produto']['codigo']" e "$dados['produto']['nome']" referem-se ao item principal da venda.
   $codigoProduto = $dados['produto']['codigo'];
   $nomeProduto = $dados['produto']['nome'];
-
+  $descricaoProduto = $dados['produto']['categoria']; // Exibe a categoria do produto
     // Tipo Postback
   $codTipoPostback = $dados['tipoPostback']['codigo']; // 1=Sistema, 2=Produtor, 3=Co-Produtor, 4=Afiliado, 5=Afiliado Premium, 6=Gerente de Afiliado, 7=Co-Afiliado 
   $descTipoPostback = $dados['tipoPostback']['descricao']; //Sistema,Produtor, Co-Produtor, Afiliado, Afiliado Premium, Gerente de Afiliado, Co-Afiliado
@@ -91,6 +91,7 @@
   $meioPagamento    = $dados['venda']['meioPagamento']; // Meio de pagamento utilizado - (PagSeguro, MoIP, Monetize)
   $formaPagamento   = $dados['venda']['formaPagamento']; // Forma de pagamento utilizado - (Cartão de crédito,  Débito online, Boleto, Gratis, Outra)
   $garantiaRestante = $dados['venda']['garantiaRestante']; //Tempo de garantia em inteito ex: 0 - Padrão: 0
+  $quantidadeParcelas= $dados['venda']['parcelas']; // Quantidade de parcelas da venda - Padrão 1
   $statusVenda      = $dados['venda']['status']; // Status da venda (Aguardando pagamento, Finalizada, Cancelada, Devolvida, Bloqueada, Completa)
 
   // Caso tenha sido realizada através de um checkout com order bump ($dados['order_bump'] == 1) o valor da venda é a soma dos valores de todos os produtos inclusos.
