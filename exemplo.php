@@ -93,6 +93,7 @@
   $garantiaRestante = $dados['venda']['garantiaRestante']; //Tempo de garantia em inteito ex: 0 - Padrão: 0
   $quantidadeParcelas= $dados['venda']['parcelas']; // Quantidade de parcelas da venda - Padrão 1
   $statusVenda      = $dados['venda']['status']; // Status da venda (Aguardando pagamento, Finalizada, Cancelada, Devolvida, Bloqueada, Completa)
+  $codigoStatusVenda= $dados['venda']['codigo_status']; // Enumeração (int) status da venda (AGUARDANDO_PAGAMENTO=1,FINALIZADA=2,CANCELADA=3,DEVOLVIDA=4,BLOQUEADA=5,COMPLETA=6)
 
   // Caso tenha sido realizada através de um checkout com order bump ($dados['order_bump'] == 1) o valor da venda é a soma dos valores de todos os produtos inclusos.
   $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
