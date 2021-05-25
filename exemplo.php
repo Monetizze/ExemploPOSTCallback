@@ -220,6 +220,8 @@
   $cidade           = $dados['comprador']['cidade'];
   $estado           = $dados['comprador']['estado'];
   $pais             = $dados['comprador']['pais'];
+  $ip               = $dados['comprador']['ip'];
+  $user_agent       = $dados['comprador']['user_agent'];
 
 
   //Dados do Produto, para emissao de nota fiscal de comissao de afiliado e co-produtor
