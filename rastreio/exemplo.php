@@ -31,8 +31,8 @@
   $descTipoPostback =    $dados['tipoPostback']['descricao']; //Sistema,Produtor, Co-Produtor, Afiliado, Afiliado Premium, Gerente de Afiliado, Co-Afiliado
 
   // Tipo Evento
-  $codigoTipoEvento =    $dados['tipoEvento']['codigo']; // 1=AGUARDANDO_PAGAMENTO, 2=FINALIZADA_APROVADA, 3=CANCELADA, 4=DEVOLVIDA, 5=BLOQUEADA, 6=COMPLETA, 7=ABANDONO_DE_CHECKOUT, 8=OCULTO, 98=CARTAO, 99=BOLETO, 101=ASSINATURA_ATIVA, 102=ASSINATURA_INADIMPLENTE, 103=ASSINATURA_CANCELADA, 104=ASSINATURA_AGUARDANDO_PAGAMENTO
-  $descricaoTipoEvento = $dados['tipoEvento']['descricao']; // 1='Aguardando pagamento', 2='Finalizada / Aprovada', 3='Cancelada', 4='Devolvida (Reembolso)', 5='Bloqueada', 6='Completa', 7='Abandono de Checkout', 8='Oculto', 98='Cartão', 99='Boleto', 101='Assinatura - Ativa', 102='Assinatura - Inadimplente', 103='Assinatura - Cancelada', 104='Assinatura - Aguardando pagamento'
+  $codigoTipoEvento =    $dados['tipoEvento']['codigo']; // 120= Status do pedido - Rastreio
+  $descricaoTipoEvento = $dados['tipoEvento']['descricao']; // Status do pedido - Rastreio
 
 
   //Dados do comprador - Somente Produto e co-produtor OU se os dados do comprador estiverem liberados para o afiliado
