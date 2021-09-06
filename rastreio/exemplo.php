@@ -63,25 +63,3 @@
 
   $json = $dados['json']; // Contem todo o conteúdo do postback em formato json
 
-
-/*
- 
-  SIGNIFICADO DE CADA STATUS DA VENDA
-
-  Aguardando pagamento = Ainda não foi confirmado o pagamento (se a forma de pagamento for boleto = Boleto Impresso,)
-  Finalizada = Pagamento confirmado - Produto pode ser entregue
-  Cancelada =  Boleto não pago, ou cartão de crédito recusado
-  Devolvida = Venda reembolsada ao comprador
-  Bloqueada = Venda em disputa
-  Completa =  Valor das comissões disponível para saque na Monetizze (Quando a venda completa 30 dias da data de finalizada)
-
-*/
-
-/*
-
-    Novos comentários adicionados por 
-        Jeferson Capobianco <jefersoncapobianco@gmail.com>
-        Challenger CRM <challengercrm.com>
-        
-        Obrigado pela contribuição.
-*/
