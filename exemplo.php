@@ -116,6 +116,11 @@
 
   $url_recuperacao = $dados['url_recuperacao']; // URL de recuperacao de venda, link direto para o checkout que o cliente acessou ja preenchendo os dados cadastrais do comprador.
 
+  // PIX - Quando a forma de pagamento da venda é PIX
+  $pix_url        = $dados['pix_url']; // Link da Monetizze com as informações do PIX (código e imagem do QRCode) 
+  $pix_img_qrcode = $dados['pix_imagem_qrcode']; // Link da imagem QRCode
+  $pix_cod_qrcode = $dados['pix_codigo_qrcode']; // Código do QRCode
+
   //planos
 
    $plano_codigo        = $dados['plano']['codigo']; // codigo do plano
