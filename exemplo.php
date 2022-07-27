@@ -29,16 +29,36 @@
   $codigoProduto = $dados['produto']['codigo'];
   $nomeProduto = $dados['produto']['nome'];
   $descricaoProduto = $dados['produto']['categoria']; // Exibe a categoria do produto
-    // Tipo Postback
+  // Tipo Postback
   $codTipoPostback = $dados['tipoPostback']['codigo']; // 1=Sistema, 2=Produtor, 3=Co-Produtor, 4=Afiliado, 5=Afiliado Premium, 6=Gerente de Afiliado, 7=Co-Afiliado 
   $descTipoPostback = $dados['tipoPostback']['descricao']; //Sistema,Produtor, Co-Produtor, Afiliado, Afiliado Premium, Gerente de Afiliado, Co-Afiliado
 
-  // Tipo Evento
-  $codigoTipoEvento = $dados['tipoEvento']['codigo']; // 1=AGUARDANDO_PAGAMENTO, 2=FINALIZADA_APROVADA, 3=CANCELADA, 4=DEVOLVIDA, 5=BLOQUEADA, 6=COMPLETA, 7=ABANDONO_DE_CHECKOUT, 8=OCULTO, 98=CARTAO, 99=BOLETO, 101=ASSINATURA_ATIVA, 102=ASSINATURA_INADIMPLENTE, 103=ASSINATURA_CANCELADA, 104=ASSINATURA_AGUARDANDO_PAGAMENTO
-  $descricaoTipoEvento = $dados['tipoEvento']['descricao']; // 1='Aguardando pagamento', 2='Finalizada / Aprovada', 3='Cancelada', 4='Devolvida (Reembolso)', 5='Bloqueada', 6='Completa', 7='Abandono de Checkout', 8='Oculto', 98='Cartão', 99='Boleto', 101='Assinatura - Ativa', 102='Assinatura - Inadimplente', 103='Assinatura - Cancelada', 104='Assinatura - Aguardando pagamento'
+
+  /**
+   * Tipos de Eventos
+   * codigo - descricao
+   * 1 - Aguardando pagamento
+   * 2 - Finalizada / Aprovada
+   * 3 - Cancelada
+   * 4 - Devolvida (Reembolso)
+   * 5 - Bloqueada
+   * 6 - Completa
+   * 7 - Abandono de Checkout
+   * 8 - Oculto
+   * 98 - Cartão
+   * 99 - Boleto
+   * 101 - Assinatura - Ativa
+   * 102 - Assinatura - Inadimplente
+   * 103 - Assinatura - Cancelada
+   * 104 - Assinatura - Aguardando pagamento
+   * 105 - Recuperação Parcelada - Ativa
+   * 106 - Recuperação Parcelada - Cancelada
+   */
+  $codigoTipoEvento = $dados['tipoEvento']['codigo'];
+  $descricaoTipoEvento = $dados['tipoEvento']['descricao'];
+
 
   //dados da venda
-
   $codVenda         = $dados['venda']['codigo']; // Código da transação
  /*
     Se não for enviado o código da venda, siginifica que esse postback se trata de uma recuperação de carrinho (checkout abandonado).
@@ -51,7 +71,7 @@
   *
   * Informa se a venda foi realizada através de um checkout que contém order bump.
   *
-  * 1 = Venda realizada através de checkout com order bump.
+  * 1 - Venda realizada através de checkout com order bump.
   * 2 - Venda realizada através de checkout SEM order bump.
   * */
   $order_bump = $dados['order_bump'];
